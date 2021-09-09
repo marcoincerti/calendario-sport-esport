@@ -139,17 +139,25 @@ class _squadreState extends State<squadre> {
                     }
 
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Text("Loading");
+                      return CircularProgressIndicator();
                     }
-
-                    return ListView(
-                      children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                        Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                        return ListTile(
-                          title: Text(data['full_name']),
-                          subtitle: Text(data['company']),
+                    Map<String, dynamic> data = snapshot.data!.data()! as Map<String, dynamic>;
+                    return ListView.builder(
+                      itemCount: data.keys.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        String key = data.keys.elementAt(index);
+                        return new Column(
+                          children: <Widget>[
+                            new ListTile(
+                              title: new Text("$key"),
+                              subtitle: new Text("${data[key]}"),
+                            ),
+                            new Divider(
+                              height: 2.0,
+                            ),
+                          ],
                         );
-                      }).toList(),
+                      },
                     );
                   },
                 ),
