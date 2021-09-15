@@ -142,15 +142,19 @@ class _squadreState extends State<squadre> {
                       return CircularProgressIndicator();
                     }
                     Map<String, dynamic> data = snapshot.data!.data()! as Map<String, dynamic>;
+                    Map<String, dynamic> squadre = data['squadre'];
+                    var sortedKeys = squadre.keys.toList()..sort();
                     return ListView.builder(
-                      itemCount: data.keys.length,
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: squadre.length,
                       itemBuilder: (BuildContext context, int index) {
-                        String key = data.keys.elementAt(index);
+                        String key = sortedKeys.elementAt(index);
                         return new Column(
                           children: <Widget>[
                             new ListTile(
                               title: new Text("$key"),
-                              subtitle: new Text("${data[key]}"),
                             ),
                             new Divider(
                               height: 2.0,
