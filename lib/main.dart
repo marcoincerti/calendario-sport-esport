@@ -168,68 +168,80 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                     Container(
-                      height: 150,
+                      height: 250,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: 5,
                           itemBuilder: (context, index) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    stops: [
-                                      0.1,
-                                      0.9
+                            return Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.white.withOpacity(0.8),
+                                        offset: Offset(-6.0, -6.0),
+                                        blurRadius: 16.0,
+                                      ),
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.1),
+                                        offset: Offset(6.0, 6.0),
+                                        blurRadius: 16.0,
+                                      ),
                                     ],
-                                    colors: [
-                                      Colors.red,
-                                      Colors.white,
-                                    ],
+                                    color: Color(0xFFEFEEEE),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
-                                  borderRadius: BorderRadius.all(Radius.circular(20),),),
-                              margin: EdgeInsets.all(8),
-                              height: 150,
-                              width: 150,
-                              child: Column(
-                                  children: [
-                                    Expanded(
-                                        flex: 2,
-                                        child:
-                                            Padding(
-                                              padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
+                                  margin: EdgeInsets.all(16),
+                                  height: 180,
+                                  width: 180,
+                                  child: Column(
+                                      children: [
+                                        Expanded(
+                                            flex: 2,
+                                            child:
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left: 8, right: 8, top: 20),
+                                                  child: Center(
+                                                    child: Text(
+                                                      '15:00',
+                                                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                                                      textAlign: TextAlign.start,
+                                                    ),
+                                                  ),
+                                                ),
+                                        ),
+                                        Expanded(
+                                          flex: 4,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(left: 8, right: 8),
+                                            child: Center(
                                               child: Text(
-                                                '15:00',
-                                                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                                                textAlign: TextAlign.start,
+                                                'Prove libere 1 di formula',
+                                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                                textAlign: TextAlign.center,
+                                                maxLines: 3,
                                               ),
                                             ),
-                                    ),
-                                    Expanded(
-                                      flex: 4,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 8, right: 8),
-                                        child: Center(
-                                          child: Text(
-                                            'Prove libere 1 di formula',
-                                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                                            maxLines: 3,
                                           ),
                                         ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 2,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 8, right: 8, bottom: 4),
-                                        child: Text(
-                                          'Amazon Prime',
-                                          maxLines: 3,
+                                        Expanded(
+                                          flex: 2,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 4),
+                                            child: Text(
+                                              'Amazon Prime',
+                                              maxLines: 3,
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                  ],
                                 ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                              ],
                             );
                           }),
                     ),
