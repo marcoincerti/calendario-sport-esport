@@ -76,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final String formatted_date = formatter.format(now);
 
     return Scaffold(
+      backgroundColor: Color(0xFFEFEEEE),
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
@@ -147,10 +148,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ];
         },
-        body: Container(
-          margin: EdgeInsets.only(left: 10, right: 10, bottom: 60),
-          child: variabile
-              ? Column(
+        body: variabile
+            ? SingleChildScrollView(
+                child: Column(
                   children: [
                     SizedBox(
                       height: 20,
@@ -168,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                     Container(
-                      height: 250,
+                      height: 220,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: 5,
@@ -194,68 +194,89 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   margin: EdgeInsets.all(16),
                                   height: 180,
-                                  width: 180,
+                                  width: 200,
                                   child: Column(
-                                      children: [
-                                        Expanded(
-                                            flex: 2,
-                                            child:
-                                                Padding(
-                                                  padding: const EdgeInsets.only(left: 8, right: 8, top: 20),
-                                                  child: Center(
-                                                    child: Text(
-                                                      '15:00',
-                                                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                                                      textAlign: TextAlign.start,
-                                                    ),
-                                                  ),
-                                                ),
-                                        ),
-                                        Expanded(
-                                          flex: 4,
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(left: 8, right: 8),
-                                            child: Center(
-                                              child: Text(
-                                                'Prove libere 1 di formula',
-                                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                                                textAlign: TextAlign.center,
-                                                maxLines: 3,
-                                              ),
+                                    children: [
+                                      Expanded(
+                                        flex: 2,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(left: 8, right: 8, top: 20),
+                                          child: Center(
+                                            child: Text(
+                                              '15:00',
+                                              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                                              textAlign: TextAlign.start,
                                             ),
                                           ),
                                         ),
-                                        Expanded(
-                                          flex: 2,
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 4),
+                                      ),
+                                      Expanded(
+                                        flex: 4,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(left: 8, right: 8),
+                                          child: Center(
                                             child: Text(
-                                              'Amazon Prime',
+                                              'Prove libere 1 di formula UNO',
+                                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                              textAlign: TextAlign.center,
                                               maxLines: 3,
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                ),
-                                SizedBox(
-                                  height: 20,
+                                      ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(left: 8, right: 8, bottom: 4),
+                                          child: Text(
+                                            'Amazon Prime',
+                                            maxLines: 3,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             );
                           }),
                     ),
+                    ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: 8,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                            child: Column(
+                              children: [
+                                Text('Martedi 25 novembre'),
+                                ListView.builder(
+                                    physics: NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                    itemCount: 8,
+                                    itemBuilder: (context, index) {
+                                      return Padding(
+                                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                                          child: Text('ciao')
+                                      );
+                                    }
+                                )
+                              ],
+                            ),
+                          );
+                        }),
                   ],
-                )
-              : Center(
-                  child: Text(
-                    'Inizia premendo sul bottone in basso per selezionare competizioni, squadre e sport da non perdere!',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
-                    maxLines: 5,
-                  ),
                 ),
-        ),
+              )
+            : Center(
+                child: Text(
+                  'Inizia premendo sul bottone in basso per selezionare competizioni, squadre e sport da non perdere!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
+                  maxLines: 5,
+                ),
+              ),
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Aggiungi partita',
