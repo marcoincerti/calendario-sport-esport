@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:intl/intl.dart';
 import 'package:translator/translator.dart';
 
@@ -176,32 +174,24 @@ class _MyHomePageState extends State<MyHomePage> {
                           itemCount: 5,
                           itemBuilder: (context, index) {
                             return Container(
-                              // decoration: BoxDecoration(
-                              //     gradient: LinearGradient(
-                              //       begin: Alignment.topLeft,
-                              //       end: Alignment.bottomRight,
-                              //       stops: [
-                              //         0.1,
-                              //         0.9
-                              //       ],
-                              //       colors: [
-                              //         Colors.red,
-                              //         Colors.white,
-                              //       ],
-                              //     ),
-                              //     borderRadius: BorderRadius.all(Radius.circular(20),),),
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    stops: [
+                                      0.1,
+                                      0.9
+                                    ],
+                                    colors: [
+                                      Colors.red,
+                                      Colors.white,
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.all(Radius.circular(20),),),
                               margin: EdgeInsets.all(8),
                               height: 150,
                               width: 150,
-                              child: Neumorphic(
-                                style: NeumorphicStyle(
-                                    shape: NeumorphicShape.concave,
-                                    boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
-                                    depth: 8,
-                                    lightSource: LightSource.topLeft,
-                                    color: Colors.grey
-                                ),
-                                child: Column(
+                              child: Column(
                                   children: [
                                     Expanded(
                                         flex: 2,
@@ -240,7 +230,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ],
                                 ),
-                              ),
                             );
                           }),
                     ),
