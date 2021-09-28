@@ -190,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ],
                                     color: Color(0xFFEFEEEE),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(30.0),
                                   ),
                                   margin: EdgeInsets.all(16),
                                   height: 180,
