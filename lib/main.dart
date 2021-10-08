@@ -85,8 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
               expandedHeight: 140.0,
               backgroundColor: Colors.green,
               shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.only(bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0))),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30.0),
+                      bottomRight: Radius.circular(30.0))),
               elevation: 8,
               flexibleSpace: FlexibleSpaceBar(
                 background: Stack(
@@ -107,8 +108,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                             margin: EdgeInsets.only(bottom: 8.0),
                             child: FutureBuilder(
-                              future: translator.translate(formatted_date, to: 'it'),
-                              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                              future: translator.translate(formatted_date,
+                                  to: 'it'),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<dynamic> snapshot) {
                                 switch (snapshot.connectionState) {
                                   case ConnectionState.waiting:
                                     return Center(
@@ -117,14 +120,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ));
                                   default:
                                     if (snapshot.hasError)
-                                      return Center(child: Text('$formatted_date'));
+                                      return Center(
+                                          child: Text('$formatted_date'));
                                     else {
                                       var data = snapshot.data;
                                       return Text(
                                         '$data',
                                         textAlign: TextAlign.center,
-                                        style:
-                                            TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20.0),
                                         maxLines: 2,
                                       );
                                     }
@@ -162,7 +168,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         Text(
                           'Eventi di oggi',
-                          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.orange),
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.orange),
                           textAlign: TextAlign.start,
                         ),
                       ],
@@ -200,11 +209,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Expanded(
                                         flex: 2,
                                         child: Padding(
-                                          padding: const EdgeInsets.only(left: 8, right: 8, top: 20),
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8, top: 20),
                                           child: Center(
                                             child: Text(
                                               '15:00',
-                                              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                                              style: TextStyle(
+                                                  fontSize: 25,
+                                                  fontWeight: FontWeight.bold),
                                               textAlign: TextAlign.start,
                                             ),
                                           ),
@@ -213,11 +225,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Expanded(
                                         flex: 4,
                                         child: Padding(
-                                          padding: const EdgeInsets.only(left: 8, right: 8),
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
                                           child: Center(
                                             child: Text(
                                               'Prove libere 1 di formula UNO',
-                                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold),
                                               textAlign: TextAlign.center,
                                               maxLines: 3,
                                             ),
@@ -227,7 +242,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Expanded(
                                         flex: 2,
                                         child: Padding(
-                                          padding: const EdgeInsets.only(left: 8, right: 8, bottom: 4),
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8, bottom: 4),
                                           child: Text(
                                             'Amazon Prime',
                                             maxLines: 3,
@@ -242,30 +258,108 @@ class _MyHomePageState extends State<MyHomePage> {
                           }),
                     ),
                     ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: 8,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                            child: Column(
-                              children: [
-                                Text('Martedi 25 novembre'),
-                                ListView.builder(
-                                    physics: NeverScrollableScrollPhysics(),
-                                    shrinkWrap: true,
-                                    itemCount: 8,
-                                    itemBuilder: (context, index) {
-                                      return Padding(
-                                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                                          child: Text('ciao')
-                                      );
-                                    }
-                                )
-                              ],
-                            ),
-                          );
-                        }),
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: 8,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding:
+                              const EdgeInsets.only(left: 15.0, right: 15.0),
+                          child: Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.only(
+                                    left: 10.0,
+                                    right: 10.0,
+                                    bottom: 10.0,
+                                    top: 15),
+                                decoration: BoxDecoration(
+                                    color: Colors.lightGreen.shade200,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30))),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Martedi 25 novembre',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      maxLines: 2,
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    ListView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      itemCount: 8,
+                                      itemBuilder: (context, index) {
+                                        return Column(
+                                          children: [
+                                            Card(
+                                              elevation: 2,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                              child: Row(
+                                                children: [
+                                                  Container(
+                                                    margin: EdgeInsets.all(6.0),
+                                                    padding:
+                                                        EdgeInsets.all(3.0),
+                                                    height: 40,
+                                                    width: 40,
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.lightBlue,
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10))),
+                                                    child: Center(
+                                                      child: Text(
+                                                        "9:30",
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontWeight:
+                                                                FontWeight.bold),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Center(
+                                                    child: Text(
+                                                      "Barcellona - Real madrid",
+                                                      maxLines: 2,
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               )
@@ -273,7 +367,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text(
                   'Inizia premendo sul bottone in basso per selezionare competizioni, squadre e sport da non perdere!',
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
                   maxLines: 5,
                 ),
               ),
